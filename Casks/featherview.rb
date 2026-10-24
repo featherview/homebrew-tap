@@ -1,6 +1,6 @@
 cask "featherview" do
-  version "0.10.0"
-  sha256 "fed28c0d3de7f136146bafab2df5bfd594716d1110cc2ab5ca1f7a32cad14b78"
+  version "0.10.1"
+  sha256 "e886858564aa985763dbc418d0d8a617a5af3e84cb385291c102920e9bc26cda"
 
   url "https://github.com/featherview/featherview/releases/download/v#{version}/Featherview-#{version}.dmg"
   name "Featherview"
