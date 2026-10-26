@@ -1,6 +1,6 @@
 cask "featherview" do
-  version "0.10.1"
-  sha256 "e886858564aa985763dbc418d0d8a617a5af3e84cb385291c102920e9bc26cda"
+  version "0.11.0"
+  sha256 "26c17c26a3e66ce4873b03b40af50c5ca47cab8f5ec0d8c67d49763069f50898"
 
   url "https://github.com/featherview/featherview/releases/download/v#{version}/Featherview-#{version}.dmg"
   name "Featherview"
@@ -12,6 +12,7 @@ cask "featherview" do
     strategy :sparkle, &:short_version
   end
 
+  auto_updates true
   depends_on macos: :sonoma
 
   app "Featherview.app"
