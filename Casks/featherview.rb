@@ -1,6 +1,6 @@
 cask "featherview" do
-  version "0.12.0"
-  sha256 "dd1ccbe17f71844fb10dca1f6b9f3840f7670e64b5a37d31139797b7891863ac"
+  version "0.12.1"
+  sha256 "10cdb1b2c2ab739898cdfa4a6439bbaa4a5301e90a2cfc2cd6ba8329f18e31b1"
 
   url "https://github.com/featherview/featherview/releases/download/v#{version}/Featherview-#{version}.dmg"
   name "Featherview"
@@ -17,6 +17,10 @@ cask "featherview" do
 
   app "Featherview.app"
 
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Featherview.app"]
+  end
+
   zap trash: [
     "~/Library/Containers/net.mynetx.featherview.preview",
     "~/Library/Containers/net.mynetx.featherview.thumbnail",
@@ -25,7 +29,8 @@ cask "featherview" do
   ]
 
   caveats <<~EOS
-    Featherview is not notarized by Apple, so macOS blocks its first launch.
-    Open it once, then choose System Settings > Privacy & Security > Open Anyway.
+    Featherview is not notarized by Apple. The install removes the download mark
+    so it opens directly. If macOS still blocks it, run this once:
+      xattr -dr com.apple.quarantine /Applications/Featherview.app
   EOS
 end
